@@ -203,7 +203,29 @@ export default {
   methods: {
     send() {
       this.isclose = false;
+      this.isPhclose = false;
       this.sent = true;
+      this.cv = {
+        name: null,
+        age: null,
+        gender: null,
+        email: null,
+        phone: [
+          {
+            number: null,
+          },
+        ],
+        education: [
+          {
+            place: null,
+            type: null,
+            course: null,
+            startdate: null,
+            enddate: null,
+            isfinish: false,
+          },
+        ],
+      };
     },
     addEducation() {
       this.cv.education.push({
