@@ -1,0 +1,33 @@
+.card {
+    margin-top: 2em;
+    background-color: whitesmoke;
+    max-width: 50rem;
+}
+
+.required {
+    color: red;
+}
+
+#form {
+    margin-top: 2em;
+}
+
+.form-group {
+    margin-top: 1em;
+}
+
+.custom-control-label {
+    margin-left: 1em;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.site {
+    margin-right: 40rem;
+}
+
+.btn-primary {
+    margin-top: 2rem;
+}

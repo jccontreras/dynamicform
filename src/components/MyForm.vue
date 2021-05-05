@@ -52,7 +52,7 @@
         <h5 class="card-title" style="margin-top: 1em;">Education</h5>
         <div class="card" v-for="(edu, index) in cv.education" v-bind:key="edu">
           <div class="card-body">
-              <h6 class="card-subtitle mb-2 text-muted">Site {{ index + 1 }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Site {{ index + 1 }}</h6>
             <div class="form-group row">
               <strong class="col-sm-2 col-form-label"><label for="name">
                 Name
@@ -120,7 +120,7 @@
                 </div>
               </div>
               <strong class="col-sm-1 col-form-label"><label style="cursor: pointer"
-                     title="Add Education" @click="addEducation">
+                        title="Add Education" @click="addEducation">
                 +
               </label> </strong>
             </div>
@@ -195,38 +195,4 @@ export default {
 };
 </script>
 
-<style>
-.card {
-  margin-top: 2em;
-  background-color: whitesmoke;
-  max-width: 50rem;
-}
-
-.required {
-  color: red;
-}
-
-#form {
-  margin-top: 2em;
-}
-
-.form-group {
-  margin-top: 1em;
-}
-
-.custom-control-label {
-  margin-left: 1em;
-}
-
-.close {
-  cursor: pointer;
-}
-
-.site {
-  margin-right: 40rem;
-}
-
-.btn-primary {
-  margin-top: 2rem;
-}
-</style>
+<style src="../store/StyleForm.css" type="text/css"/>
