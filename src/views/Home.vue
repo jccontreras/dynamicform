@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>My CV</h1>
+    <h1 style="color: #169c47;">My CV</h1>
     <my-form/>
   </div>
 </template>

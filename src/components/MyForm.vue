@@ -21,7 +21,7 @@
             <label class="required">*</label>
           </label></strong>
           <div class="col-sm-4">
-            <input type="number" class="form-control" id="age" min="18" max="99"
+            <input type="number" class="form-control" id="age" min="18" max="99" maxlength="2"
                    v-model="cv.age">
           </div>
           <strong class="col-sm-2 col-form-label"><label for="radio1">Gender</label></strong>
@@ -48,6 +48,28 @@
                    placeholder="example@somthing.x" autocomplete="off" v-model="cv.email" required>
           </div>
         </div>
+        <div class="form-group row" v-for="(ph, index) in cv.phone" v-bind:key="ph">
+          <strong class="col-sm-2 col-form-label"><label for="phone">
+            Phone {{index + 1}}
+            <label class="required">*</label>
+          </label> </strong>
+          <div class="col-sm-6">
+            <input type="tel" id="phone" class="form-control" maxlength="10"
+                   placeholder="3xx xxx xx xx" autocomplete="off" v-model="ph.number" required>
+          </div>
+          <strong class="col-sm-2">
+                <span class="close" @click="addPhone"
+                      title="add Phone">
+                  <img src="@/assets/addicon.png" style="max-height: 30px; max-width: 30px">
+                </span>
+          </strong>
+          <strong class="col-sm-2">
+                <span class="close" @click="deletePhone(index)"
+                      title="add Phone" v-if="isPhclose">
+                  <img src="@/assets/deleteicon.png" style="max-height: 30px; max-width: 30px">
+                </span>
+          </strong>
+        </div>
         <hr>
         <h5 class="card-title" style="margin-top: 1em;">Education</h5>
         <div class="card" v-for="(edu, index) in cv.education" v-bind:key="edu">
@@ -58,13 +80,15 @@
                 Name
                 <label class="required">*</label>
               </label> </strong>
-              <div class="col-sm-9">
+              <div class="col-sm-8">
                 <input type="text" id="eduplace" class="form-control"
                        placeholder="University" autocomplete="off" v-model="edu.place" required>
               </div>
-              <strong class="col-sm-1">
+              <strong class="col-sm-2">
                 <span class="close" @click="deleteEducation(index)"
-                      title="Delete Education" v-if="isclose">x</span>
+                      title="Delete Education" v-if="isclose">
+                  <img src="@/assets/deleteicon.png" style="max-height: 30px; max-width: 30px">
+                </span>
               </strong>
             </div>
             <div class="form-group row">
@@ -121,7 +145,7 @@
               </div>
               <strong class="col-sm-1 col-form-label"><label style="cursor: pointer"
                         title="Add Education" @click="addEducation">
-                +
+                <img src="@/assets/addicon.png" style="max-height: 30px; max-width: 30px">
               </label> </strong>
             </div>
           </div>
@@ -144,12 +168,18 @@ export default {
   data() {
     return {
       isclose: false,
+      isPhclose: false,
       sent: false,
       cv: {
         name: null,
         age: null,
         gender: null,
         email: null,
+        phone: [
+          {
+            number: null,
+          },
+        ],
         education: [
           {
             place: null,
@@ -189,6 +219,18 @@ export default {
       this.cv.education.splice(index, 1);
       if (this.cv.education.length === 1) {
         this.isclose = false;
+      }
+    },
+    addPhone() {
+      this.cv.phone.push({
+        number: null,
+      });
+      this.isPhclose = true;
+    },
+    deletePhone(index) {
+      this.cv.phone.splice(index, 1);
+      if (this.cv.phone.length === 1) {
+        this.isPhclose = false;
       }
     },
   },
