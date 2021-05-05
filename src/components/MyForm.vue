@@ -1,7 +1,7 @@
 <template>
   <div class="card mx-auto">
     <div class="card-body">
-      <h5 class="card-title">insert your data in the form please</h5>
+      <h5 class="card-title">Insert your data in the form please</h5>
       <h6 class="card-subtitle mb-2 text-muted">remember that the fields with * are required</h6>
       <form id="form" @submit.prevent="send">
         <h5 class="card-title" style="margin-top: 1em;">Personal Info</h5>
